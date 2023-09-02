@@ -41,9 +41,13 @@
                                         type="button">
                                         <span class="icon"><i class="mdi mdi-eye"></i></span>
                                     </button>
-                                    <button class="button small red --jb-modal" data-target="sample-modal" type="button">
-                                        <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                                    </button>
+                                    <form action="{{ route('admin.portfolio.destroy', $portfolio->id) }}" method="post">
+                                        @csrf
+                                        <button class="button small red --jb-modal"
+                                            onclick="confirm('Are you sure delete this portfolio?')">
+                                            <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+                                        </button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>

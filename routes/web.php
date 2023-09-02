@@ -27,4 +27,4 @@ Route::get('/portfolio/create', [PortfolioController::class, 'create'])->name('a
 Route::post('/portfolio/store', [PortfolioController::class, 'store'])->name('admin.portfolio.store');
 Route::get('/portfolio/edit', [PortfolioController::class, 'edit'])->name('admin.portfolio.edit');
 Route::post('/portfolio/update', [PortfolioController::class, 'update'])->name('admin.portfolio.update');
-Route::post('/portfolio/delete', [PortfolioController::class, 'delete'])->name('admin.portfolio.delete');
+Route::post('/portfolio/destroy/{id}', [PortfolioController::class, 'destroy'])->name('admin.portfolio.destroy');
