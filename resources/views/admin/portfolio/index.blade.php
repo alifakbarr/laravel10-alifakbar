@@ -1,8 +1,55 @@
 @extends('admin.layouts.master')
 
 @section('title')
-    Dashboard
+    {{ $title }}
 @endsection
+
+@section('create')
+    <section class="is-hero-bar">
+        <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+            <h1 class="title">
+                @yield('title')
+            </h1>
+            <a href="{{ route('admin.portfolio.create') }}" class="button blue">Create</a>
+        </div>
+    </section>
+@endsection
+
 @section('content')
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo omnis id praesentium dolore placeat! Similique neque repellat praesentium, veritatis assumenda eius unde? Delectus neque ad dolor quia veniam ut culpa. Blanditiis laboriosam corporis facere nam impedit vel neque similique, dignissimos architecto optio perspiciatis nulla non, voluptatem deserunt sit quae quod laborum quia obcaecati id libero illum vero illo esse? Architecto porro dicta sunt harum rerum modi, blanditiis explicabo facilis tempore nostrum libero placeat rem nam. Enim dolore aut fugiat, unde sequi mollitia temporibus fuga. Inventore id animi neque perferendis voluptatem, optio accusamus dicta tempore ullam aperiam hic, odio voluptate iure, omnis assumenda. Ea quae accusantium aspernatur, quidem distinctio sit labore modi magni numquam, aperiam recusandae accusamus, sapiente porro dolor suscipit facilis quaerat architecto non! Necessitatibus rem accusantium facilis ratione molestiae illo dolore saepe, mollitia corrupti minima? Adipisci accusantium sed voluptate, mollitia ipsa iure vel impedit eaque at, qui ducimus labore assumenda quidem nisi quae minus ipsum suscipit! Consectetur nulla pariatur, eius illum quas aliquid necessitatibus. Iusto, magnam assumenda! Eius, beatae iure velit distinctio, mollitia corrupti repellat sunt assumenda perspiciatis quas nulla porro odit dignissimos harum possimus modi consequuntur sapiente voluptatem veniam magni maiores dolor veritatis animi. Cum iure cumque facilis omnis soluta magni vero architecto recusandae perferendis doloremque error ex et, libero voluptates dolores iusto, atque officia! Laborum velit ipsum ullam fuga perspiciatis, doloremque dolorum nobis consequuntur perferendis veritatis, dolore in aliquam rerum molestiae maxime et officia repellat necessitatibus quisquam earum eius eveniet corporis quas. Laboriosam veniam obcaecati vitae inventore, ducimus eligendi modi non ex tenetur perferendis, illum porro aspernatur voluptates amet pariatur illo quibusdam animi dolorum, excepturi cupiditate voluptatibus accusamus! Obcaecati est culpa id dicta nihil atque cumque tenetur repellat nesciunt illo, iusto modi mollitia tempora tempore nisi non eligendi sit expedita nostrum consequatur esse blanditiis. Consectetur magnam ab debitis incidunt aliquam molestias aliquid voluptatem modi laboriosam qui sed autem voluptates, quia fuga voluptate nam numquam. Culpa mollitia magnam sint velit error qui veniam, quibusdam ex amet dignissimos. Nisi, repellat autem? Est asperiores laudantium minus repellat ipsam, quisquam non optio? Sit deleniti necessitatibus, impedit numquam iste quidem pariatur? Excepturi necessitatibus et dolores velit possimus quisquam quasi tempore officia explicabo accusamus, inventore neque saepe provident reiciendis veniam ab similique consequatur cumque odit consequuntur. Architecto tempore tempora nam! Quos delectus cumque debitis culpa veritatis deleniti necessitatibus non eveniet rem repudiandae asperiores adipisci nobis eos reprehenderit amet minima minus quaerat at ex expedita, quasi sit? Rem tempora beatae laudantium. Fugiat suscipit incidunt asperiores corrupti laborum voluptas ad corporis hic aperiam repellat reprehenderit cupiditate enim, perferendis nobis. Necessitatibus molestias dolore commodi voluptatem quo veritatis earum obcaecati doloribus repellat repudiandae modi neque laudantium atque pariatur dolor, officiis adipisci quidem laborum harum, molestiae sunt quos qui. Labore, deleniti rem corrupti id harum qui quasi magni nulla omnis iste tempore consequatur excepturi porro quibusdam mollitia possimus nostrum, atque, optio doloremque repellendus tenetur veniam magnam. Expedita, officiis! Similique tempore ex fuga magnam laborum architecto. Eius autem vel est rerum, tempora exercitationem ex libero nisi atque temporibus ducimus.
+    <div class="card has-table">
+        <div class="card-content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Role</th>
+                        <th>Created At</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($portfolios as $portfolio)
+                        <tr>
+                            <td data-label="Title">{{ $portfolio->title }}</td>
+                            <td data-label="Role">{{ $portfolio->role }}</td>
+                            <td data-label="Created At">
+                                <small class="text-gray-500" title="Oct 25, 2021">{{ $portfolio->created_at }}</small>
+                            </td>
+                            <td class="actions-cell" data-label="Action">
+                                <div class="buttons">
+                                    <button class="button small green --jb-modal" data-target="sample-modal-2"
+                                        type="button">
+                                        <span class="icon"><i class="mdi mdi-eye"></i></span>
+                                    </button>
+                                    <button class="button small red --jb-modal" data-target="sample-modal" type="button">
+                                        <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
 @endsection

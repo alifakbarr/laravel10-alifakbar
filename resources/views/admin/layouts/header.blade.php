@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dashboard - Admin</title>
+  <title>Admin - @yield('title')</title>
 
   <!-- Tailwind is included -->
   <link rel="stylesheet" href="{{ asset('template') }}/dist/css/main.css?v=1628755089081">

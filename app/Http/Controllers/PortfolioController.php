@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
 class PortfolioController extends Controller
@@ -11,7 +12,9 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        //
+        $title = 'Portfolio';
+        $portfolios = Portfolio::get();
+        return view('admin/portfolio/index', compact('title', 'portfolios'));
     }
 
     /**
@@ -19,7 +22,8 @@ class PortfolioController extends Controller
      */
     public function create()
     {
-        //
+        $title = 'Create Portfolio';
+        return view('admin/portfolio/create', compact('title'));
     }
 
     /**
@@ -27,7 +31,23 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => ['required'],
+            'role' =>  ['required'],
+        ]);
+
+        date_default_timezone_set('Asia/Jakarta');
+
+        Portfolio::create([
+            'title' => $request->title,
+            'role' => $request->role,
+            'start_at' => $request->start_at,
+            'finish_at' => $request->finish_at,
+            'link' => $request->link,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->route('admin.portfolio');
     }
 
     /**
