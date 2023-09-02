@@ -37,13 +37,13 @@
                             </td>
                             <td class="actions-cell" data-label="Action">
                                 <div class="buttons">
-                                    <button class="button small green --jb-modal" data-target="sample-modal-2"
-                                        type="button">
+                                    <a href="{{ route('admin.portfolio.show', $portfolio->id) }}"
+                                        class="button small green">
                                         <span class="icon"><i class="mdi mdi-eye"></i></span>
-                                    </button>
+                                    </a>
                                     <form action="{{ route('admin.portfolio.destroy', $portfolio->id) }}" method="post">
                                         @csrf
-                                        <button class="button small red --jb-modal"
+                                        <button class="button small red"
                                             onclick="confirm('Are you sure delete this portfolio?')">
                                             <span class="icon"><i class="mdi mdi-trash-can"></i></span>
                                         </button>
