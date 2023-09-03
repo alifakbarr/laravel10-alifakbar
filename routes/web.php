@@ -31,5 +31,5 @@ Route::get('/portfolio/edit/{id}', [PortfolioController::class, 'edit'])->name('
 Route::post('/portfolio/update/{id}', [PortfolioController::class, 'update'])->name('admin.portfolio.update');
 Route::post('/portfolio/destroy/{id}', [PortfolioController::class, 'destroy'])->name('admin.portfolio.destroy');
 
-
+// home
 Route::get('home/portfolio', [HomeController::class, 'portfolio'])->name('home.portfolio');
