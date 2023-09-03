@@ -64,17 +64,36 @@ class ArticlesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $articles = Articles::find($id);
+
+        return view('admin/articles/edit', compact('articles'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => ['required'],
+            'share' =>  ['required'],
+            'status' =>  ['required'],
+            'content' =>  ['required'],
+        ]);
+
+
+        $articles =  Articles::find($id);
+        $articles->update([
+            'title' => $request->title,
+            'slug' => Str::slug($request->title),
+            'share' => $request->share,
+            'status' => $request->status,
+            'content' => $request->content,
+        ]);
+
+        return redirect()->route('admin.articles');
     }
 
     /**
