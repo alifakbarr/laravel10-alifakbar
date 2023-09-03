@@ -10,9 +10,14 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $title = 'Home - alifakbarr';
+        $title = 'alifakbarr';
         $articles = Articles::latest('created_at')->get();
         return view('user/index', compact('title', 'articles'));
+    }
+    public function show($id)
+    {
+        $article = Articles::where('id', $id)->first();
+        return view('user/show', compact('article'));
     }
     public function portfolio()
     {

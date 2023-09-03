@@ -119,10 +119,6 @@
                             class="block py-2 pl-3 pr-4 rounded text-blue-700 text-gray-900 hover:text-blue-700">Home</a>
                     </li>
                     <li>
-                        <a href="{{ route('home.index') }}"
-                            class="block py-2 pl-3 pr-4 rounded text-blue-700 text-gray-900 hover:text-blue-700">Articles</a>
-                    </li>
-                    <li>
                         <a href="{{ route('home.portfolio') }}"
                             class="block py-2 pl-3 pr-4 rounded text-blue-700 text-gray-900 hover:text-blue-700">Portfolio</a>
                     </li>
@@ -134,7 +130,7 @@
     @yield('content')
     <div class="flex justify-center">
         <div
-            class="p-4 border bg-black border border-white text-white rounded-lg w-5/6 sm:w-11/12 fixed z-20 bottom-0 my-4">
+            class="p-4 border bg-black border border-white text-white rounded shadow-xl w-5/6 sm:w-11/12 fixed z-20 bottom-0 my-4">
             <h1 class="text-center font-base text-sm">&copy
                 <span id="year"></span> | Alif Akbar Irdhobilla
             </h1>

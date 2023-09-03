@@ -49,4 +49,5 @@ Route::post('/articles/destroy/{id}', [ArticlesController::class, 'destroy'])->n
 
 // home
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/show/{id}', [HomeController::class, 'show'])->name('home.show');
 Route::get('home/portfolio', [HomeController::class, 'portfolio'])->name('home.portfolio');
