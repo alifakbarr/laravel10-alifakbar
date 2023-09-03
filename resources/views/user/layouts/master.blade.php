@@ -115,6 +115,14 @@
                 <ul
                     class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x md:mt-0 md:border-0 md:bg-white">
                     <li>
+                        <a href="{{ route('home.index') }}"
+                            class="block py-2 pl-3 pr-4 rounded text-blue-700 text-gray-900 hover:text-blue-700">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('home.index') }}"
+                            class="block py-2 pl-3 pr-4 rounded text-blue-700 text-gray-900 hover:text-blue-700">Articles</a>
+                    </li>
+                    <li>
                         <a href="{{ route('home.portfolio') }}"
                             class="block py-2 pl-3 pr-4 rounded text-blue-700 text-gray-900 hover:text-blue-700">Portfolio</a>
                     </li>

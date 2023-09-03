@@ -18,10 +18,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin/layouts/master');
-});
-
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
 // portfolios 
@@ -52,4 +48,5 @@ Route::post('/articles/update/{id}', [ArticlesController::class, 'update'])->nam
 Route::post('/articles/destroy/{id}', [ArticlesController::class, 'destroy'])->name('admin.articles.destroy');
 
 // home
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('home/portfolio', [HomeController::class, 'portfolio'])->name('home.portfolio');
