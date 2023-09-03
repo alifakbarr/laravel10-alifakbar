@@ -25,4 +25,10 @@ class HomeController extends Controller
         $portfolios = Portfolio::latest('created_at')->get();
         return view('user/portfolio', compact('title', 'portfolios'));
     }
+
+    public function aboutMe()
+    {
+        $title = 'About Me';
+        return view('user/aboutMe', compact('title'));
+    }
 }

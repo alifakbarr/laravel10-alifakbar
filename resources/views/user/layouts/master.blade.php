@@ -122,6 +122,11 @@
                         <a href="{{ route('home.portfolio') }}"
                             class="block py-2 pl-3 pr-4 rounded text-blue-700 text-gray-900 hover:text-blue-700">Portfolio</a>
                     </li>
+                    <li>
+                        <a href="{{ route('home.aboutMe') }}"
+                            class="block py-2 pl-3 pr-4 rounded text-blue-700 text-gray-900 hover:text-blue-700">About
+                            Me</a>
+                    </li>
                 </ul>
             </div>
         </div>
