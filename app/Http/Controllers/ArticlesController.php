@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Articles;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ArticlesController extends Controller
 {
@@ -11,7 +13,9 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        //
+        $title = 'Articles';
+        $articles = Articles::latest('created_at')->get();
+        return view('admin/articles/index', compact('title', 'articles'));
     }
 
     /**
@@ -19,7 +23,8 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        //
+        $title = 'Create Articles';
+        return view('admin/articles/create', compact('title'));
     }
 
     /**
@@ -27,15 +32,33 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $this->validate($request, [
+            'title' => ['required'],
+            'share' =>  ['required'],
+            'status' =>  ['required'],
+            'content' =>  ['required'],
+        ]);
+
+        Articles::create([
+            'title' => $request->title,
+            'slug' => Str::slug($request->title),
+            'share' => $request->share,
+            'status' => $request->status,
+            'content' => $request->content,
+        ]);
+
+        return redirect()->route('admin.articles');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $articles = Articles::find($id);
+
+        return view('admin/articles/show', compact('articles'));
     }
 
     /**

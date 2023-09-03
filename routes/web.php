@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
@@ -40,6 +41,15 @@ Route::get('/categories/show/{id}', [CategoriesController::class, 'show'])->name
 Route::get('/categories/edit/{id}', [CategoriesController::class, 'edit'])->name('admin.categories.edit');
 Route::post('/categories/update/{id}', [CategoriesController::class, 'update'])->name('admin.categories.update');
 Route::post('/categories/destroy/{id}', [CategoriesController::class, 'destroy'])->name('admin.categories.destroy');
+
+// articles 
+Route::get('/articles', [ArticlesController::class, 'index'])->name('admin.articles');
+Route::get('/articles/create', [ArticlesController::class, 'create'])->name('admin.articles.create');
+Route::post('/articles/store', [ArticlesController::class, 'store'])->name('admin.articles.store');
+Route::get('/articles/show/{id}', [ArticlesController::class, 'show'])->name('admin.articles.show');
+Route::get('/articles/edit/{id}', [ArticlesController::class, 'edit'])->name('admin.articles.edit');
+Route::post('/articles/update/{id}', [ArticlesController::class, 'update'])->name('admin.articles.update');
+Route::post('/articles/destroy/{id}', [ArticlesController::class, 'destroy'])->name('admin.articles.destroy');
 
 // home
 Route::get('home/portfolio', [HomeController::class, 'portfolio'])->name('home.portfolio');
