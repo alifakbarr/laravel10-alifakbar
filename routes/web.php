@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PortfolioController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,6 @@ Route::get('/portfolio/show/{id}', [PortfolioController::class, 'show'])->name('
 Route::get('/portfolio/edit/{id}', [PortfolioController::class, 'edit'])->name('admin.portfolio.edit');
 Route::post('/portfolio/update/{id}', [PortfolioController::class, 'update'])->name('admin.portfolio.update');
 Route::post('/portfolio/destroy/{id}', [PortfolioController::class, 'destroy'])->name('admin.portfolio.destroy');
+
+
+Route::get('home/portfolio', [HomeController::class, 'portfolio'])->name('home.portfolio');

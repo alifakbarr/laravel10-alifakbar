@@ -13,7 +13,7 @@ class PortfolioController extends Controller
     public function index()
     {
         $title = 'Portfolio';
-        $portfolios = Portfolio::get();
+        $portfolios = Portfolio::latest('created_at')->get();
         return view('admin/portfolio/index', compact('title', 'portfolios'));
     }
 
