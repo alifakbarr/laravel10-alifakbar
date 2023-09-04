@@ -3,7 +3,7 @@
     {{ $title }}
 @endsection
 @section('content')
-    <div class="my-20 sm:my-24 mx-6 sm:mx-12">
+    <div class="mt-10 mb-24 sm:my-24 mx-6 sm:mx-12">
         <div class="flex justify-center">
             <div class="block py-9 sm:py-16 px-6 sm:px-12 w-full sm:w-9/12 bg-white border border-gray-200 rounded-sm ">
                 <div class="text-center">
@@ -26,7 +26,7 @@
                     <!-- <hr class="border border-white rounded-lg mt-2 mb-2 w-full"> -->
                 </div>
 
-                <div class="mt-12">
+                <div class="mt-10">
                     <p class="text-base sm:text-lg w-full tracking-tight leading-tight font-bold text-black pb-2 ">
                         Welcome
                         to alifakbar!</p>

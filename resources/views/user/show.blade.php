@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     {{-- <div class="w-2/4 bg-white"> --}}
-    <div class="my-20 sm:my-24 mx-6 sm:mx-12">
+    <div class="mt-10 mb-24 sm:my-24 mx-6 sm:mx-12">
         <div class="flex justify-center">
             <div class="block py-9 sm:py-16 px-6 sm:px-12 w-full sm:w-9/12 bg-white border border-gray-200 rounded-sm ">
                 <div class="flex justify-start mb-4">

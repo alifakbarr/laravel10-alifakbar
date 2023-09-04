@@ -4,14 +4,14 @@
 @endsection
 @section('content')
     {{-- <div class="w-2/4 bg-white"> --}}
-    <div class="my-20 sm:my-24 mx-6 sm:mx-12">
+    <div class="mt-10 mb-24 sm:my-24 mx-6 sm:mx-12">
         <div class="flex justify-center">
             <div class="flex justify-start block mb-2 w-full sm:w-8/12 ">
                 <p class="font-bold text-lg sm:text-xl ml-6">Articles</p>
             </div>
         </div>
         @foreach ($articles as $article)
-            <div class="flex justify-center mb-5">
+            <div class="flex justify-center mb-3">
                 <a href="{{ route('home.show', $article->id) }}"
                     class="block p-6 w-full sm:w-8/12 bg-white border border-gray-200 rounded-md hover:bg-gray-50 ">
                     <div class="flex justify-start mb-4">

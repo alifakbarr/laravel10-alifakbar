@@ -54,7 +54,7 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #cdd2d9;
+            background-color: #040D12;
             border-radius: 4px;
         }
 
@@ -116,7 +116,7 @@
                     class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x md:mt-0 md:border-0 md:bg-white">
                     <li>
                         <a href="{{ route('home.index') }}"
-                            class="block py-2 pl-3 pr-4 rounded text-blue-700 text-gray-900 hover:text-blue-700">Home</a>
+                            class="block py-2 pl-3 pr-4 rounded {{ request()->is('/') ? 'text-blue-700' : '' }} text-gray-900 hover:text-blue-700">Home</a>
                     </li>
                     <li>
                         <a href="{{ route('home.portfolio') }}"
@@ -127,10 +127,60 @@
                             class="block py-2 pl-3 pr-4 rounded text-blue-700 text-gray-900 hover:text-blue-700">About
                             Me</a>
                     </li>
+                    <li>
+                        <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"
+                            class="block py-2 pl-3 pr-4 rounded text-blue-700 text-gray-900 hover:text-blue-700"
+                            type="button">
+                            Sign In
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    {{-- sign in --}}
+    <div id="authentication-modal" tabindex="-1" aria-hidden="true"
+        class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative w-full max-w-md max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow ">
+                <button type="button"
+                    class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center "
+                    data-modal-hide="authentication-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+                <div class="px-6 py-6 lg:px-8">
+                    <h3 class="mb-4 text-xl font-medium text-gray-900 ">Sign in to alifakbar</h3>
+                    <form class="space-y-6" action="#">
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Your
+                                email</label>
+                            <input type="email" name="email" id="email"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                                placeholder="name@company.com" required>
+                        </div>
+                        <div>
+                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 ">Your
+                                password</label>
+                            <input type="password" name="password" id="password" placeholder="••••••••"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                                required>
+                        </div>
+                        <button type="submit"
+                            class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Login
+                            to your account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     @yield('content')
     <div class="flex justify-center">
