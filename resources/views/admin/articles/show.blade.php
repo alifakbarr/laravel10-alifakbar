@@ -21,6 +21,11 @@
             <b>Title : {{ $articles->title }}</b> <br>
             <b>Share : {{ $articles->share }}</b> <br>
             <b>Status : {{ $articles->status }}</b> <br>
+            <b>Categories :
+                @foreach ($articles->categories()->get() as $category)
+                    {{ $category->name . ',' }}
+                @endforeach
+            </b>
             <hr>
             <b>Content :</b> <br>
             <div class="">{!! $articles->content !!}</div>

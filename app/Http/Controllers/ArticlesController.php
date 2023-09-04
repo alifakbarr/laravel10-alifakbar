@@ -71,8 +71,8 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $articles = Articles::find($id);
-
-        return view('admin/articles/edit', compact('articles'));
+        $categories = Categories::orderby('name', 'asc')->get();
+        return view('admin/articles/edit', compact('articles', 'categories'));
     }
 
     /**
@@ -89,13 +89,16 @@ class ArticlesController extends Controller
 
 
         $articles =  Articles::find($id);
-        $articles->update([
+        $articles_data = [
             'title' => $request->title,
             'slug' => Str::slug($request->title),
             'share' => $request->share,
             'status' => $request->status,
             'content' => $request->content,
-        ]);
+        ];
+
+        $articles->categories()->sync($request->categories);
+        $articles->update($articles_data);
 
         return redirect()->route('admin.articles');
     }
