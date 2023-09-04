@@ -36,6 +36,18 @@
             </div>
         </div>
         <div class="field">
+            <label class="label">Categoris</label>
+            <div class="control">
+                <div class="select">
+                    <select name="categories[]" id="mySelect" multiple required style="height: 100px">
+                        @foreach ($categories as $categori)
+                            <option value="{{ $categori->id }}">{{ $categori->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="field">
             <label class="label">Content</label>
             <div class="control">
                 <textarea name="content" id="editor" cols="30" rows="10"></textarea>

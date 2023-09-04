@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Articles;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -24,7 +25,8 @@ class ArticlesController extends Controller
     public function create()
     {
         $title = 'Create Articles';
-        return view('admin/articles/create', compact('title'));
+        $categories = Categories::orderby('name', 'ASC')->get();
+        return view('admin/articles/create', compact('title', 'categories'));
     }
 
     /**
@@ -40,13 +42,15 @@ class ArticlesController extends Controller
             'content' =>  ['required'],
         ]);
 
-        Articles::create([
+        $articles = Articles::create([
             'title' => $request->title,
             'slug' => Str::slug($request->title),
             'share' => $request->share,
             'status' => $request->status,
             'content' => $request->content,
         ]);
+
+        $articles->categories()->attach($request->categories);
 
         return redirect()->route('admin.articles');
     }
@@ -67,8 +71,8 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $articles = Articles::find($id);
-
-        return view('admin/articles/edit', compact('articles'));
+        $categories = Categories::orderby('name', 'asc')->get();
+        return view('admin/articles/edit', compact('articles', 'categories'));
     }
 
     /**
@@ -85,13 +89,16 @@ class ArticlesController extends Controller
 
 
         $articles =  Articles::find($id);
-        $articles->update([
+        $articles_data = [
             'title' => $request->title,
             'slug' => Str::slug($request->title),
             'share' => $request->share,
             'status' => $request->status,
             'content' => $request->content,
-        ]);
+        ];
+
+        $articles->categories()->sync($request->categories);
+        $articles->update($articles_data);
 
         return redirect()->route('admin.articles');
     }

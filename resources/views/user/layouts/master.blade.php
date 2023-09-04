@@ -26,6 +26,8 @@
     <!-- flowbite css -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
+
     <!-- select2 -->
     <title>@yield('title')</title>
     <!-- From UNPKG -->
@@ -196,8 +198,12 @@
         document.getElementById("year").innerHTML = new Date().getFullYear();
     </script>
 
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
     <!-- flowbite js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    <script>
+        new MultiSelectTag('mySelect') // id
+    </script>
 
 </body>
 

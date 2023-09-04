@@ -23,10 +23,10 @@
                         </div>
                     </div>
                     <h5 class="mb-2 text-xl sm:text-2xl font-bold tracking-tight text-gray-900">{{ $article->title }}</h5>
-                    <span
-                        class="bg-blue-100 text-blue-800 text-xs font-medium mr-1 px-2.5 py-1 rounded-full">Programming</span>
-                    <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-1 px-2.5 py-1 rounded-full">Laravel</span>
-                    <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-1 px-2.5 py-1 rounded-full">php</span>
+                    @foreach ($article->categories()->get() as $categori)
+                        <span
+                            class="bg-blue-100 text-blue-800 text-xs font-medium mr-1 px-2.5 py-1 rounded-full">{{ $categori->name }}</span>
+                    @endforeach
                 </a>
             </div>
         @endforeach

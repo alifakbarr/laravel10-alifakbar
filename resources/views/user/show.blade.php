@@ -17,9 +17,10 @@
                 </div>
                 <h1 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl">
                     {{ $article->title }}</h1>
-                <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-1 px-2.5 py-1 rounded-full">Programming</span>
-                <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-1 px-2.5 py-1 rounded-full">Laravel</span>
-                <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-1 px-2.5 py-1 rounded-full">php</span>
+                @foreach ($article->categories()->get() as $categori)
+                    <span
+                        class="bg-blue-100 text-blue-800 text-xs font-medium mr-1 px-2.5 py-1 rounded-full">{{ $categori->name }}</span>
+                @endforeach
                 <article class="pt-14 prose max-w-none prose-p:tracking-tight">
                     {!! $article->content !!}
                 </article>
