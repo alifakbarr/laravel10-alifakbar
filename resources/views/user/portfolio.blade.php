@@ -4,10 +4,11 @@
 @endsection
 @section('content')
     {{-- <div class="w-2/4 bg-white"> --}}
-    <div class="flex justify-center my-20 sm:my-24 px-6 sm:px-12 ">
+    <div class="flex justify-center mt-10 mb-24 sm:my-24 mx-6 sm:mx-12 ">
         <div class="w-full bg-white border border-gray-200">
             <div class="p-6 sm:p-12">
-                <p class="text-4xl sm:text-5xl w-full tracking-tighter leading-tight font-bold text-black pb-20 text-center">
+                <p
+                    class="text-4xl sm:text-5xl w-full tracking-tighter leading-tight font-bold text-black pb-16 sm:pb-20 text-center">
                     Portfolio</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <!-- Kolom 1 -->
